@@ -26,6 +26,7 @@ function result () {
     setTimeout(removeAll, 1000);
     return;
   }
+
   let string = display.innerText, str = "", operator = '+', array = [], res = 478;
 
   for (let i = 0; i < string.length; i++) {
@@ -38,6 +39,7 @@ function result () {
       str = "";
     }
   }
+
   array.push(parseFloat(str));
   console.log(array);
 
@@ -54,8 +56,13 @@ function result () {
     res = array[0] / array[1];
   }
 
+  if (!Number.isInteger(res)) {
+    res = res.toFixed(5);
+  }
+
   display.innerText = res.toString();
   isOperatorPresent = false;
+  
   if (display.innerText == "Infinity") {
     display.innerText = "Cannot divide by zero";
     setTimeout(removeAll, 1000);
