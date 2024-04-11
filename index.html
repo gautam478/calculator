@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="calci.css">
+  <script defer src="calci.js"></script>
+</head>
+<body>
+  <div id="papa">
+    <div id="area">
+      <div id="display_area" type="text"></div>
+      <div id="input_area">
+        <div class="row" id="first">
+          <div class="box" onclick="takeValue(this)" id="one">1</div>
+          <div class="box" onclick="takeValue(this)" id="two">2</div>
+          <div class="box" onclick="takeValue(this)" id="three">3</div>
+          <div class="box" onclick="takeValue(this)" id="four">4</div>
+        </div>
+        <div class="row" id="second">
+          <div class="box" onclick="takeValue(this)" id="five">5</div>
+          <div class="box" onclick="takeValue(this)" id="six">6</div>
+          <div class="box" onclick="takeValue(this)" id="seven">7</div>
+          <div class="box" onclick="takeValue(this)" id="eight">8</div>
+        </div>
+        <div class="row" id="third">
+          <div class="box" onclick="takeValue(this)" id="nine">9</div>
+          <div class="box" onclick="takeValue(this)" id="zero">0</div>
+          <div class="box" onclick="removeAll()" id="clear">AC</div>
+          <div class="box" onclick="result()" id="equal">=</div>
+        </div>
+        <div class="row" id="fourth">
+          <div class="box" onclick="takeValue(this)" id="plus">+</div>
+          <div class="box" onclick="takeValue(this)" id="minus">-</div>
+          <div class="box" onclick="takeValue(this)" id="multiply">*</div>
+          <div class="box" onclick="takeValue(this)" id="divide">/</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
