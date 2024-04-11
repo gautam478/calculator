@@ -51,7 +51,7 @@ function result () {
 
   display.innerText = res.toString();
   isOperatorPresent = false;
-  if (display.innerText == "Infinity") {
+  if (display.innerText == "Infinity" || display.innerText == "NaN") {
     setTimeout(removeAll, 1000);
   }
 }
