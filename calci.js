@@ -21,6 +21,11 @@ function result () {
   if (display.innerText == null || !isOperatorPresent || isNaN(parseInt(display.innerText[display.innerText.length - 1]))) {
     return;
   }
+  if (display.innerText == "0/0") {
+    display.innerText = "Cannot divide by zero";
+    setTimeout(removeAll, 1000);
+    return;
+  }
   let string = display.innerText, str = "", operator = '+', array = [], res = 478;
 
   for (let i = 0; i < string.length; i++) {
@@ -51,7 +56,8 @@ function result () {
 
   display.innerText = res.toString();
   isOperatorPresent = false;
-  if (display.innerText == "Infinity" || display.innerText == "NaN") {
+  if (display.innerText == "Infinity") {
+    display.innerText = "Cannot divide by zero";
     setTimeout(removeAll, 1000);
   }
 }
