@@ -27,33 +27,43 @@ function result () {
     return;
   }
 
-  let string = display.innerText, str = "", operator = '+', array = [], res = 478;
+  let string = display.innerText, isFirstNegative = false, operator = '+', array = [], res = 478;
 
-  for (let i = 0; i < string.length; i++) {
-    if (!isNaN(parseInt(string[i])) || string[i] == '.') {
-      str += string[i];
-    }
-    else {
-      operator = string[i];
-      array.push(parseFloat(str));
-      str = "";
-    }
+  if (string[0] == '-') {
+    isFirstNegative = true;
+    console.log("Yes first number is negative");
   }
 
-  array.push(parseFloat(str));
+  for (let i = 1; i < string.length; i++) {
+    if (string[i] == '+' || string[i] == '-' || string[i] == '*' || string[i] == '/') {
+      operator = string[i];
+      break;
+    }
+  }
+  console.log("operator is" ,operator);
+
+  array = string.split(/[+\-*\/]/);
+  let len = array.length;
+  for (let i = 0; i < len; i++) {
+    array[i] = parseFloat(array[i]);
+  }
   console.log(array);
 
+  if (isFirstNegative) {
+    array[len - 2] *= -1;
+  }
+  
   if (operator == '+') {
-    res = array[0] + array[1];
+    res = array[len - 2] + array[len - 1];
   }
   else if (operator == '-') {
-    res = array[0] - array[1];
+    res = array[len - 2] - array[len - 1];
   }
   else if (operator == '*') {
-    res = array[0] * array[1];
+    res = array[len - 2] * array[len - 1];
   }
   else if (operator == '/') {
-    res = array[0] / array[1];
+    res = array[len - 2] / array[len - 1];
   }
 
   if (!Number.isInteger(res)) {
